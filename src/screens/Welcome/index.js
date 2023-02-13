@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Text, View } from 'react-native';
 
-import styles from './styles';
+import styles from './style';
 
 const Welcome = () => {
   return (
