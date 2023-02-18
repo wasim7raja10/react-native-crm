@@ -2,6 +2,7 @@ import { put, select, takeLatest } from "redux-saga/effects";
 import * as actions from "../reducer";
 
 export function* watchEditCustomer() {
+  yield takeLatest(actions.editCustomer, takeEditCustomer);
 }
 
 export function* takeEditCustomer(action) {

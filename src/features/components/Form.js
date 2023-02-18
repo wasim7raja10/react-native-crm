@@ -4,7 +4,7 @@ import { Switch } from "react-native";
 import DropdownComponent from "./Dropdown";
 import { useUpdateFormFields } from "../customer/hooks";
 
-const Form = ({ handleSubmit, customerID, showDelete }) => {
+const Form = ({ handleSubmit, customerID }) => {
 
   const { fields, setFormField } = useUpdateFormFields(customerID);
 
@@ -63,19 +63,6 @@ const Form = ({ handleSubmit, customerID, showDelete }) => {
           textTransform: "uppercase",
         }}>Submit</Text>
       </TouchableOpacity>
-      {showDelete && (
-        <TouchableOpacity
-          onPress={() => {
-          }}
-          style={{...styles.button, backgroundColor: "red"}}
-        >
-          <Text style={{
-            color: "#fff",
-            textAlign: "center",
-            textTransform: "uppercase",
-          }}>Delete</Text>
-        </TouchableOpacity>
-      )}
     </View>
   );
 };

@@ -7,16 +7,14 @@ export const useUpdateFormFields = (customerID = null) => {
   // @ts-ignore
   const { fields } = useSelector((state) => state.customer.form);
 
-  useEffect(() => {
-    if (customerID) {
-      // @ts-ignore
-      const {customers} = useSelector((state) => state.customer.list.customers);
-      const customer = customers.find((customer) => customer.id === customerID);
-      dispatch(actions.updateFormFields(customer));
-    }
-  }, [customerID]);
-  
-  
+  if (customerID) {
+    // @ts-ignore
+    const { customers } = useSelector((state) => state.customer.list);
+    const customer = customers.find((customer) => customer.id === customerID);
+    dispatch(actions.updateFormFields(customer));
+  }
+
+
   return {
     fields,
     setFormField: (field) => (value) => {
@@ -47,6 +45,17 @@ export const useLoadCustomers = () => {
   return customers;
 }
 
+export const useEditCustomer = (customerID) => {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const { status } = useSelector((state) => state.customer.edit);
+  return {
+    status,
+    onSubmit: () => {
+      dispatch(actions.editCustomer(customerID));
+    },
+  };
+}
 
 
 

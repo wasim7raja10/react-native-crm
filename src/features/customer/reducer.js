@@ -19,6 +19,9 @@ const initialState = {
   create: {
     status: PENDING,
   },
+  edit: {
+    status: PENDING,
+  },
   error: {
     message: "",
   },
@@ -31,6 +34,9 @@ const reducers = {
   createCustomerSuccess: (state, {payload}) => {
     state.create.status = SUCCESS;
     state.list.customers = payload
+  },
+  updateFormFields: (state, {payload}) => {
+    state.form.fields = payload;
   },
   createCustomerError: (state, {payload}) => {
     state.list.status = ERROR;
@@ -47,8 +53,16 @@ const reducers = {
     state.list.status = ERROR;
     state.error.message = payload;
   },
-  updateFormFields: (state, {payload}) => {
-    state.form.fields = payload;
+  editCustomer: (state) => {
+    state.list.status = REQUESTING;
+  },
+  editCustomerSuccess: (state, {payload}) => {
+    state.list.status = SUCCESS;
+    state.list.customers = payload;
+  },
+  editCustomerError: (state, {payload}) => {
+    state.list.status = ERROR;
+    state.error.message = payload;
   },
 };
 
@@ -66,6 +80,9 @@ export const {
   loadCustomersSuccess,
   loadCustomersError,
   updateFormFields,
+  editCustomer,
+  editCustomerSuccess,
+  editCustomerError,
 } = slice.actions;
 
 export default slice.reducer;
