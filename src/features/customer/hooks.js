@@ -6,6 +6,13 @@ export const useUpdateFormFields = (customerID = null) => {
   const dispatch = useDispatch();
   // @ts-ignore
   const { fields } = useSelector((state) => state.customer.form);
+  useEffect(() => {
+    if (customerID) {
+      dispatch(actions.setInitialFormFields(customerID));
+    } else {
+      dispatch(actions.setInitialFormFields(customerID));
+    }
+  }, [customerID]);
   return {
     fields,
     setFormField: (field) => (value) => {

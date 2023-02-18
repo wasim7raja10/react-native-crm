@@ -38,6 +38,15 @@ const reducers = {
   updateFormFields: (state, {payload}) => {
     state.form.fields = payload;
   },
+  setInitialFormFields: (state, {payload}) => {
+    const id = payload;
+    if(id) {
+      const customer = state.list.customers.find((customer) => customer.id === id);
+      state.form.fields = customer;
+    } else {
+      state.form.fields = initialState.form.fields;
+    }
+  },
   createCustomerError: (state, {payload}) => {
     state.list.status = ERROR;
     state.error.message = payload;
@@ -80,6 +89,7 @@ export const {
   loadCustomersSuccess,
   loadCustomersError,
   updateFormFields,
+  setInitialFormFields,
   editCustomer,
   editCustomerSuccess,
   editCustomerError,
