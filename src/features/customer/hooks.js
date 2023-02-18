@@ -55,5 +55,17 @@ export const useEditCustomer = (customerID) => {
   };
 }
 
+export const useClearCustomers = () => {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const { status } = useSelector((state) => state.customer.clear);
+  return {
+    status,
+    clearCustomers: () => {
+      dispatch(actions.clearCustomers());
+    },
+  };
+}
+
 
 

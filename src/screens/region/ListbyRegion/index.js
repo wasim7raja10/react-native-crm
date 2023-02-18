@@ -5,7 +5,6 @@ import CustomerList from "../../../features/components/CustomerList";
 
 const ListbyRegion = ({route}) => {
   const { regionValue } = route.params;
-  console.log("ListbyRegion: region", regionValue);
   return (
     <View style={styles.view}>
       <CustomerList regionValue={regionValue} />

@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import { useCreateCustomer } from "../../../features/customer/hooks";
 import styles from "./styles";
@@ -9,7 +9,7 @@ const NewCustomer = () => {
   return (
     <SafeAreaView>
       <ScrollView style={styles.view}>
-        <Form handleSubmit={onSubmit} showDelete={false} customerID={null} />
+        <Form handleSubmit={onSubmit} customerID={null} />
       </ScrollView>
     </SafeAreaView>
   );

@@ -22,6 +22,9 @@ const initialState = {
   edit: {
     status: PENDING,
   },
+  clear: {
+    status: PENDING,
+  },
   error: {
     message: "",
   },
@@ -73,6 +76,17 @@ const reducers = {
     state.list.status = ERROR;
     state.error.message = payload;
   },
+  clearCustomers: (state) => {
+    state.clear.status = REQUESTING;
+  },
+  clearCustomersSuccess: (state, {payload}) => {
+    state.clear.status = SUCCESS;
+    state.list.customers = payload;
+  },
+  clearCustomersError: (state, {payload}) => {
+    state.clear.status = ERROR;
+    state.error.message = payload;
+  }
 };
 
 const slice = createSlice({
@@ -93,6 +107,9 @@ export const {
   editCustomer,
   editCustomerSuccess,
   editCustomerError,
+  clearCustomers,
+  clearCustomersSuccess,
+  clearCustomersError,
 } = slice.actions;
 
 export default slice.reducer;

@@ -2,9 +2,10 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import styles from './styles';
-import { clear } from '../../utilities/async-storage';
+import { useClearCustomers } from '../../features/customer/hooks';
 
 const Welcome = ({ navigation }) => {
+  const { clearCustomers } = useClearCustomers()
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Customer Manager Plus</Text>
@@ -18,7 +19,7 @@ const Welcome = ({ navigation }) => {
       <View style={{ height: 20 }} />
       <TouchableOpacity
         style={{ ...styles.button, backgroundColor: 'red' }}
-        onPress={() => clear()}
+        onPress={() => clearCustomers()}
       >
         <Text style={styles.buttonText}>Clear Data</Text>
       </TouchableOpacity>
