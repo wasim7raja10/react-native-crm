@@ -10,7 +10,7 @@ export const useUpdateFormFields = (customerID = null) => {
   useEffect(() => {
     if (customerID) {
       // @ts-ignore
-      const customers = useSelector((state) => state.customer.list.customers);
+      const {customers} = useSelector((state) => state.customer.list.customers);
       const customer = customers.find((customer) => customer.id === customerID);
       dispatch(actions.updateFormFields(customer));
     }
@@ -36,6 +36,16 @@ export const useCreateCustomer = () => {
     },
   };
 };
+
+export const useLoadCustomers = () => {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const { customers } = useSelector((state) => state.customer.list);
+  useEffect(() => {
+    dispatch(actions.loadCustomers());
+  }, []);
+  return customers;
+}
 
 
 

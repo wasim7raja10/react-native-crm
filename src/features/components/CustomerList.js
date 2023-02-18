@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, FlatList, Button } from "react-native";
-import { useListCustomers } from "../customer/hooks";
+import { useLoadCustomers } from "../customer/hooks";
 import ShowCustomer from "./ShowCustomer";
 import { useNavigation } from "@react-navigation/native";
 
 const CustomerList = ({regionValue}) => {
   const { navigate } = useNavigation()
-  const customers = useListCustomers();
+  const customers = useLoadCustomers();
 
   console.log("CustomerList: customers", customers);
 
