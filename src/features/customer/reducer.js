@@ -43,9 +43,6 @@ const reducers = {
     state.error.message = payload;
     state.form.fields = initialState.form.fields;
   },
-  editCustomer: (state, { payload }) => {
-    state.edit.status = REQUESTING;
-  },
   setForm: (state, { payload }) => {
     const customer = state?.list.customers.find((a) => (a.id === payload));
 
@@ -55,11 +52,16 @@ const reducers = {
       state.form.fields = initialState.form.fields;
     }
   },
+  editCustomer: (state, { payload }) => {
+    state.edit.status = REQUESTING;
+  },
   editCustomerResult: (state, { payload }) => {
     state.edit.status = SUCCESS;
     state.list.customers = payload;
     state.form.fields = initialState.form.fields;
     state.edit = initialState.edit;
+
+    console.log(state);
   },
   editCustomerError: (state, { payload }) => {
     state.edit.status = ERROR;
