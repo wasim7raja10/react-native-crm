@@ -6,15 +6,6 @@ export const useUpdateFormFields = (customerID = null) => {
   const dispatch = useDispatch();
   // @ts-ignore
   const { fields } = useSelector((state) => state.customer.form);
-
-  if (customerID) {
-    // @ts-ignore
-    const { customers } = useSelector((state) => state.customer.list);
-    const customer = customers.find((customer) => customer.id === customerID);
-    dispatch(actions.updateFormFields(customer));
-  }
-
-
   return {
     fields,
     setFormField: (field) => (value) => {

@@ -18,5 +18,6 @@ export function* takeEditCustomer(action) {
     });
 
   } catch (error) {
+    yield put(actions.editCustomerError(error));
   }
 }
