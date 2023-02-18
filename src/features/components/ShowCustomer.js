@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { regions } from "../data/regions";
 
@@ -13,7 +13,7 @@ const ShowCustomer = ({ item }) => {
       // @ts-ignore
       onPress={() => navigate("Edit Customer", { customerID: item.id })}
     >
-      <View key={item.id} style={{ borderWidth: 1, padding: 10, margin: 10 }}>
+      <View key={item.id} style={styles.itemView}>
         <Text key={"id"}>ID: {item.id}</Text>
         <Text key={"fn"}>First Name: {item.firstName}</Text>
         <Text key={"ln"}>Last Name: {item.lastName}</Text>
@@ -23,5 +23,14 @@ const ShowCustomer = ({ item }) => {
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  itemView: {
+    padding: 10,
+    margin: 10,
+    borderWidth: 1,
+    borderColor: "blue",
+  },
+});
 
 export default ShowCustomer;
