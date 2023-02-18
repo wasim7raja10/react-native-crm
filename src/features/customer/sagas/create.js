@@ -3,7 +3,7 @@ import * as actions from "../reducer";
 import { set } from "../../../utilities/async-storage";
 
 export function* watchCreateCustomer() {
-  yield takeLatest(actions.createCustomer.toString(), takeCreateCustomer);
+  yield takeLatest(actions.createCustomer, takeCreateCustomer);
 }
 
 export function* takeCreateCustomer() {
@@ -12,15 +12,15 @@ export function* takeCreateCustomer() {
     const customers = yield select((state) => state.customer.list.customers);
 
     const customer = {
-      id: customers.length + 1,
       ...fields,
+      id: customers.length + 1,
     };
 
     const result = [customer, ...customers];
 
     yield set("CUSTOMERS_KEY", result);
 
-    yield put(actions.createCustomerResult(result));
+    yield put(actions.createCustomerSuccess(result));
   } catch (error) {
     yield put(actions.createCustomerError(error.toString()));
   }

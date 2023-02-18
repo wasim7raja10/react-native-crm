@@ -1,30 +1,23 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "./reducer";
 
-export const useUpdateFields = (customerID = null) => {
+export const useUpdateFormFields = (customerID = null) => {
   const dispatch = useDispatch();
-  const fields = useSelector((state) => state.customer.form.fields);
-  useEffect(() => {
-    if (customerID) {
-      dispatch(actions.setForm(customerID));
-    } else {
-      dispatch(actions.setForm(null));
-    }
-  }, [customerID]);
+  // @ts-ignore
+  const { fields } = useSelector((state) => state.customer.form);
+  
   return {
     fields,
     setFormField: (field) => (value) => {
-      console.log(`updating field, ${field}, ${value}`);
-      return dispatch(actions.setFormField({ field, value }));
+      dispatch(actions.updateFormFields({ ...fields, [field]: value }));
     },
   };
 };
 
-export const useNewCustomer = () => {
+export const useCreateCustomer = () => {
   const dispatch = useDispatch();
-  const status = useEditCustomerStatus();
-
+  // @ts-ignore
+  const { status } = useSelector((state) => state.customer.create);
   return {
     status,
     onSubmit: () => {
@@ -33,35 +26,5 @@ export const useNewCustomer = () => {
   };
 };
 
-export const useCreateCustomerStatus = () => {
-  // @ts-ignore
-  return useSelector((state) => state.customer.create.status);
-};
 
-export const useEditCustomer = (customerID) => {
-  const dispatch = useDispatch();
-  const status = useEditCustomerStatus();
 
-  return {
-    status,
-    onSubmit: () => {
-      dispatch(actions.editCustomer(customerID));
-    },
-  };
-};
-
-export const useEditCustomerStatus = () => {
-  // @ts-ignore
-  return useSelector((state) => state.customer.edit.status);
-};
-
-export const useListCustomers = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(actions.loadCustomers());
-  }, [dispatch]);
-
-  // @ts-ignore
-  return useSelector((state) => state.customer.list.customers);
-};

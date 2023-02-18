@@ -1,20 +1,14 @@
 import { View, TextInput, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { useUpdateFields } from "../customer/hooks";
 import React from "react";
-import { useState } from "react";
 import { Switch } from "react-native";
 import DropdownComponent from "./Dropdown";
 
 const Form = ({ handleSubmit, customerID, showDelete }) => {
-  const { fields, setFormField } = useUpdateFields(customerID);
-
-  const { firstName, lastName, active, region } = fields;
 
   const onSubmit = () => {
     handleSubmit();
   };
 
-  const [isEnabled, setIsEnabled] = useState(active);
 
   return (
     <View style={styles.container}>
@@ -22,7 +16,6 @@ const Form = ({ handleSubmit, customerID, showDelete }) => {
         style={styles.textInput}
         key={"firstName"}
         placeholder="First Name..."
-        value={firstName}
         onChangeText={setFormField("firstName")}
       />
 
@@ -32,7 +25,6 @@ const Form = ({ handleSubmit, customerID, showDelete }) => {
         style={styles.textInput}
         key={"lastName"}
         placeholder="Last Name..."
-        value={lastName}
         onChangeText={setFormField("lastName")}
       />
 
@@ -42,17 +34,13 @@ const Form = ({ handleSubmit, customerID, showDelete }) => {
       <View style={styles.switchView}>
         <Text style={styles.switchText}>Active: </Text>
         <Switch
-          onValueChange={(e) => {
-            setIsEnabled(e);
-            setFormField("active")(e);
-          }}
-          value={isEnabled}
+         
         />
       </View>
 
       <View style={{height: 25}} />
 
-      <DropdownComponent setFormField={setFormField} selectedRegion={region} />
+      <DropdownComponent setFormField={setFormField} selectedRegion={""} />
 
       <View style={styles.gap} />
 
