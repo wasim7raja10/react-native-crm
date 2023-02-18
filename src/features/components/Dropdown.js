@@ -7,10 +7,7 @@ import { regions } from "../data/regions";
 
 
 const DropdownComponent = ({ setFormField, selectedRegion }) => {
-  const [value, setValue] = useState(selectedRegion);
-
   const onChangeHandler = (item) => {
-    setValue(item.value);
     setFormField("region")(item.value);
   };
 
@@ -22,7 +19,7 @@ const DropdownComponent = ({ setFormField, selectedRegion }) => {
         containerStyle={styles.shadow}
         data={regions}
         maxHeight={300}
-        value={value}
+        value={selectedRegion}
         labelField="label"
         valueField="value"
         onChange={onChangeHandler}

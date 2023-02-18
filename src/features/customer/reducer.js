@@ -30,8 +30,7 @@ const reducers = {
   },
   createCustomerSuccess: (state, {payload}) => {
     state.create.status = SUCCESS;
-    state.list.customers.push(payload);
-    state.form.fields = initialState.form.fields;
+    state.list.customers = payload
   },
   createCustomerError: (state, {payload}) => {
     state.list.status = ERROR;
