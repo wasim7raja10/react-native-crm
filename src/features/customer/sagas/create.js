@@ -22,12 +22,7 @@ export function* takeCreateCustomer() {
 
     yield put(actions.createCustomerSuccess(result));
 
-    yield put(actions.updateFormFields({
-      firstName: null,
-      lastName: null,
-      active: false,
-      region: null,
-    }));
+    yield put(actions.setInitialFormFields(null));
     
   } catch (error) {
     yield put(actions.createCustomerError(error.toString()));

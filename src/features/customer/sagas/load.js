@@ -10,7 +10,7 @@ export function* watchLoadCustomers() {
 export function* takeLoadCustomers() {
   try {
     const customers = yield get("CUSTOMERS_KEY");
-    yield put(actions.loadCustomersSuccess(customers));
+    yield put(actions.loadCustomersSuccess(customers || []));
   } catch (error) {
     yield put(actions.loadCustomersError(error.toString()));
   }
