@@ -1,19 +1,27 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 import styles from './styles';
+import { clear } from '../../utilities/async-storage';
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Customer Manager Plus</Text>
-      <Button
-        title="Continue"
-      />
-      <View style={styles.space} />
-      <Button
-        title="Clear Storage"
-      />
+      <Text style={styles.title}>Customer Manager Plus</Text>
+      <TouchableOpacity
+        style={{ ...styles.button, backgroundColor: '#2196F3' }}
+        onPress={() => navigation.navigate('List of Regions')}
+      >
+        <Text style={styles.buttonText}>Continue</Text>
+      </TouchableOpacity>
+      {/* space */}
+      <View style={{ height: 20 }} />
+      <TouchableOpacity
+        style={{ ...styles.button, backgroundColor: 'red' }}
+        onPress={() => clear()}
+      >
+        <Text style={styles.buttonText}>Clear Data</Text>
+      </TouchableOpacity>
     </View>
   );
 };

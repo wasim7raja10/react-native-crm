@@ -7,14 +7,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    borderRadius: 5,
+    width: 200,
+    padding: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 20,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-  },
-  space: {
-    marginVertical: 10
-  },
+  }
 });
 
 export default styles;

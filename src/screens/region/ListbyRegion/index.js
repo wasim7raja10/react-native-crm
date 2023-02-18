@@ -1,10 +1,14 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import React from "react";
+import styles from "./styles";
+import CustomerList from "../../../features/components/CustomerList";
 
-const ListbyRegion = () => {
+const ListbyRegion = ({route}) => {
+  const { regionValue } = route.params;
+  console.log("ListbyRegion: region", regionValue);
   return (
-    <View>
-      <Text>Edit Customer</Text>
+    <View style={styles.view}>
+      <CustomerList regionValue={regionValue} />
     </View>
   );
 }
