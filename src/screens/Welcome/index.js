@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View, Button } from 'react-native';
 
 import styles from './styles';
 import { useClearCustomers } from '../../features/customer/hooks';
@@ -18,12 +18,13 @@ const Welcome = ({ navigation }) => {
       </TouchableOpacity>
       {/* space */}
       <View style={{ height: 20 }} />
-      <TouchableOpacity
-        style={{ ...styles.button, backgroundColor: '#2196F3' }}
-        onPress={() => schedulePushNotification()}
-      >
-        <Text style={styles.buttonText}>Activate Reminder</Text>
-      </TouchableOpacity>
+      <Button
+        title="Press to schedule a notification"
+        onPress={async () => {
+          console.log('Press to schedule a notification');
+          await schedulePushNotification();
+        }}
+      />
       {/* space */}
       <View style={{ height: 20 }} />
       <TouchableOpacity

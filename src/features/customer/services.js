@@ -1,16 +1,15 @@
-import * as Notifications from 'expo-notifications';
+import { setNotificationHandler, scheduleNotificationAsync } from 'expo-notifications';
 
-Notifications.setNotificationHandler({
+setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
   }),
 });
 
-// @ts-ignore
 async function schedulePushNotification() {
-  await Notifications.scheduleNotificationAsync({
+  scheduleNotificationAsync({
     content: {
       title: "Here's your daily reminder!",
       body: 'You have to contact a customer today!',
