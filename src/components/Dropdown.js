@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from "react-native";
 import React from "react";
 import { Dropdown } from "react-native-element-dropdown";
-import { regions } from "../data/regions";
+import { regions } from "../features/data/regions";
 
 
 const DropdownComponent = ({ setFormField, selectedRegion }) => {

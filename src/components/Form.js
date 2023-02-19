@@ -2,7 +2,7 @@ import { View, TextInput, Text, StyleSheet, TouchableOpacity } from "react-nativ
 import React from "react";
 import { Switch } from "react-native";
 import DropdownComponent from "./Dropdown";
-import { useDeleteCustomer, useUpdateFormFields } from "../customer/hooks";
+import { useDeleteCustomer, useUpdateFormFields } from "../features/customer/hooks";
 
 const Form = ({ handleSubmit, customerID }) => {
 

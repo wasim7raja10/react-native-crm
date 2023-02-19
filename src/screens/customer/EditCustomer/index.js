@@ -1,6 +1,6 @@
 import React from "react";
 import {  useEditCustomer } from "../../../features/customer/hooks";
-import Form from "../../../features/components/Form";
+import Form from "../../../components/Form";
 import { ScrollView, SafeAreaView } from "react-native";
 import styles from "./styles";
 

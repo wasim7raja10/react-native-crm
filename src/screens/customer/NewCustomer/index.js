@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import { useCreateCustomer } from "../../../features/customer/hooks";
 import styles from "./styles";
-import Form from "../../../features/components/Form";
+import Form from "../../../components/Form";
 
 const NewCustomer = () => {
   const { onSubmit } = useCreateCustomer();

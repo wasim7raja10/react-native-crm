@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
-import Welcome from "./screens/Welcome";
+import Welcome from "../screens/Welcome";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ListofRegions from "./screens/region/ListRegions";
-import ListbyRegion from "./screens/region/ListbyRegion";
-import NewCustomer from "./screens/customer/NewCustomer";
-import EditCustomer from "./screens/customer/EditCustomer";
+import ListofRegions from "../screens/region/ListRegions";
+import ListbyRegion from "../screens/region/ListbyRegion";
+import NewCustomer from "../screens/customer/NewCustomer";
+import EditCustomer from "../screens/customer/EditCustomer";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
