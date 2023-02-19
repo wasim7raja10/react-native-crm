@@ -21,7 +21,6 @@ const Welcome = ({ navigation }) => {
       <Button
         title="Press to schedule a notification"
         onPress={async () => {
-          console.log('Press to schedule a notification');
           await schedulePushNotification();
         }}
       />
