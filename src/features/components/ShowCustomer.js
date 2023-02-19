@@ -14,11 +14,17 @@ const ShowCustomer = ({ item }) => {
       onPress={() => navigate("Edit Customer", { customerID: item.id })}
     >
       <View key={item.id} style={styles.itemView}>
-        <Text key={"id"}>ID: {item.id}</Text>
-        <Text key={"fn"}>First Name: {item.firstName}</Text>
-        <Text key={"ln"}>Last Name: {item.lastName}</Text>
-        <Text key={"ac"}>Active: {item.active ? "True" : "False"}</Text>
-        <Text key={"re"}>Region: {itemRegion?.label}</Text>
+        <Text style={styles.title}># {item.id}</Text>
+        <View style={{height: 10}} />
+        <View style={styles.fieldView}>
+          <Text style={styles.title}>Name:</Text>
+          <Text>{item.firstName} {item.lastName}</Text>
+        </View>
+        <View style={{height: 10}} />
+        <View style={styles.fieldView}>
+          <Text style={styles.title}>Is active?</Text>
+          <Text>{item.active ? "Yes" : "No"}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -30,6 +36,13 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     borderColor: "blue",
+  },
+  fieldView: {
+    flexDirection: "row",
+  },
+  title: {
+    width: '30%',
+    fontWeight: 'bold',
   },
 });
 
