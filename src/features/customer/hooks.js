@@ -55,6 +55,18 @@ export const useEditCustomer = (customerID) => {
   };
 }
 
+export const useDeleteCustomer = (customerID) => {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const { status } = useSelector((state) => state.customer.delete);
+  return {
+    status,
+    deleteCustomer: () => {
+      dispatch(actions.deleteCustomer(customerID));
+    },
+  };
+}
+
 export const useClearCustomers = () => {
   const dispatch = useDispatch();
   // @ts-ignore

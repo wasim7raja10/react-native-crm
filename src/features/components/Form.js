@@ -2,14 +2,18 @@ import { View, TextInput, Text, StyleSheet, TouchableOpacity } from "react-nativ
 import React from "react";
 import { Switch } from "react-native";
 import DropdownComponent from "./Dropdown";
-import { useUpdateFormFields } from "../customer/hooks";
+import { useDeleteCustomer, useUpdateFormFields } from "../customer/hooks";
 
 const Form = ({ handleSubmit, customerID }) => {
 
   const { fields, setFormField } = useUpdateFormFields(customerID);
-
+  const { status, deleteCustomer } = useDeleteCustomer(customerID);
+  
   const onSubmit = () => {
     handleSubmit();
+  };
+  const onDelete = () => {
+    deleteCustomer();
   };
 
 
@@ -65,7 +69,7 @@ const Form = ({ handleSubmit, customerID }) => {
       </TouchableOpacity>
       {customerID && (
         <TouchableOpacity
-          onPress={onSubmit}
+          onPress={onDelete}
           style={{ ...styles.button, backgroundColor: "#f44336" }}
         >
           <Text style={{

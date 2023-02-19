@@ -25,6 +25,9 @@ const initialState = {
   clear: {
     status: PENDING,
   },
+  delete: {
+    status: PENDING,
+  },
   error: {
     message: "",
   },
@@ -76,6 +79,17 @@ const reducers = {
     state.list.status = ERROR;
     state.error.message = payload;
   },
+  deleteCustomer: (state) => {
+    state.delete.status = REQUESTING;
+  },
+  deleteCustomerSuccess: (state, {payload}) => {
+    state.delete.status = SUCCESS;
+    state.list.customers = payload;
+  },
+  deleteCustomerError: (state, {payload}) => {
+    state.delete.status = ERROR;
+    state.error.message = payload;
+  },
   clearCustomers: (state) => {
     state.clear.status = REQUESTING;
   },
@@ -110,6 +124,9 @@ export const {
   clearCustomers,
   clearCustomersSuccess,
   clearCustomersError,
+  deleteCustomer,
+  deleteCustomerSuccess,
+  deleteCustomerError,
 } = slice.actions;
 
 export default slice.reducer;

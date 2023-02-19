@@ -23,6 +23,6 @@ export function* takeEditCustomer(action) {
     yield put(actions.editCustomerSuccess(result));
 
   } catch (error) {
-    yield put(actions.editCustomerError(error));
+    yield put(actions.editCustomerError(error.toString()));
   }
 }
