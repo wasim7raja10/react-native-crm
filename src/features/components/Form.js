@@ -47,7 +47,7 @@ const Form = ({ handleSubmit, customerID }) => {
         />
       </View>
 
-      <View style={{height: 25}} />
+      <View style={{ height: 25 }} />
 
       <DropdownComponent setFormField={setFormField} selectedRegion={fields.region} />
 
@@ -55,7 +55,7 @@ const Form = ({ handleSubmit, customerID }) => {
 
       <TouchableOpacity
         onPress={onSubmit}
-        style={{...styles.button, backgroundColor: "#2196F3"}}
+        style={{ ...styles.button, backgroundColor: "#2196F3" }}
       >
         <Text style={{
           color: "#fff",
@@ -63,6 +63,18 @@ const Form = ({ handleSubmit, customerID }) => {
           textTransform: "uppercase",
         }}>Submit</Text>
       </TouchableOpacity>
+      {customerID && (
+        <TouchableOpacity
+          onPress={onSubmit}
+          style={{ ...styles.button, backgroundColor: "#f44336" }}
+        >
+          <Text style={{
+            color: "#fff",
+            textAlign: "center",
+            textTransform: "uppercase",
+          }}>Delete</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -83,19 +95,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   switchView: {
-      flexDirection: "row",
-      alignItems: "center",
-      width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
   },
   switchText: {
-      fontSize: 18,
-      width: "25%",
-      fontWeight: "500",
+    fontSize: 18,
+    width: "25%",
+    fontWeight: "500",
   },
   button: {
-      padding: 15,
-      borderRadius: 4,
-      marginTop: 10,
+    padding: 15,
+    borderRadius: 4,
+    marginTop: 10,
   }
 });
 
