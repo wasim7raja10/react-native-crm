@@ -2,6 +2,11 @@ import { put, select, takeLatest } from "redux-saga/effects";
 import * as actions from "../reducer";
 import { set } from "../../../utilities/async-storage";
 
+const uid = () =>
+  String(
+    Date.now().toString(32)
+  ).replace(/\./g, '')
+
 export function* watchCreateCustomer() {
   yield takeLatest(actions.createCustomer, takeCreateCustomer);
 }
@@ -13,7 +18,7 @@ export function* takeCreateCustomer() {
 
     const customer = {
       ...fields,
-      id: customers.length + 1,
+      id: uid(),
     };
 
     const result = [customer, ...customers];
