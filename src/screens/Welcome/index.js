@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 import styles from './styles';
 import { useClearCustomers } from '../../features/customer/hooks';
+import { schedulePushNotification } from '../../features/customer/services';
 
 const Welcome = ({ navigation }) => {
   const { clearCustomers } = useClearCustomers()
@@ -14,6 +15,14 @@ const Welcome = ({ navigation }) => {
         onPress={() => navigation.navigate('List of Regions')}
       >
         <Text style={styles.buttonText}>Continue</Text>
+      </TouchableOpacity>
+      {/* space */}
+      <View style={{ height: 20 }} />
+      <TouchableOpacity
+        style={{ ...styles.button, backgroundColor: '#2196F3' }}
+        onPress={() => schedulePushNotification()}
+      >
+        <Text style={styles.buttonText}>Activate Reminder</Text>
       </TouchableOpacity>
       {/* space */}
       <View style={{ height: 20 }} />
