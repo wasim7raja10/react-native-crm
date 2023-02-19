@@ -4,8 +4,9 @@ const styles = StyleSheet.create({
   title: {
     color: "#000",
     fontWeight: "bold",
-    marginTop: 10,
+    marginVertical: 10,
     alignSelf: "center",
+    fontSize: 20,
   },
   view: {
     width: "100%",

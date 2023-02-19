@@ -10,7 +10,7 @@ const ListRegions = ({navigation}) => {
         onPress={() =>
           navigation.navigate(
             'List by Region',
-            { regionValue: item.value }
+            { regionValue: item.value, regionLabel: item.label }
           )
         }
         title={item.label}
