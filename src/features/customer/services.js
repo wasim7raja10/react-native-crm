@@ -16,7 +16,7 @@ async function schedulePushNotification() {
       body: 'You have to contact a customer today!',
       data: { data: 'Sohel Rana' },
     },
-    trigger: { seconds: 2, repeats: false },
+    trigger: { seconds: 2 },
   });
 }
 
