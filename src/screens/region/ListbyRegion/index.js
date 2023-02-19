@@ -1,10 +1,10 @@
-import { View, Text, Button, FlatList } from "react-native";
+import { View, Text, Pressable, FlatList } from "react-native";
 import React from "react";
 import styles from "./styles";
 import { useLoadCustomers } from "../../../features/customer/hooks";
 import ShowCustomer from "../../../features/components/ShowCustomer";
 
-const ListbyRegion = ({ route }) => {
+const ListbyRegion = ({ route, navigation }) => {
   const { regionValue, regionLabel } = route.params;
 
   const customers = useLoadCustomers();
@@ -26,14 +26,15 @@ const ListbyRegion = ({ route }) => {
           renderItem={(props) => <ShowCustomer {...props} />}
           keyExtractor={(item) => item.id}
         />) : (
-        <>
-          <Text>{"No Customers"}</Text>
-          <Button
-            title="Add Customer"
-            // @ts-ignore
-            onPress={() => navigate("New Customer")}
-          />
-        </>)
+        <View style={styles.noCustomerView}>
+          <Text style={styles.noCustomerText}>{"No Customers"}</Text>
+          <Pressable
+            style={styles.button}
+            onPress={() => navigation.navigate("New Customer")}
+          >
+            <Text style={styles.buttonText}>{"Create New Customer"}</Text>
+          </Pressable>
+        </View>)
       }
     </View>
   );
