@@ -2,7 +2,7 @@ import { View, Text, Pressable, FlatList } from "react-native";
 import React from "react";
 import styles from "./styles";
 import { useLoadCustomers } from "../../../features/customer/hooks";
-import ShowCustomer from "../../../features/components/ShowCustomer";
+import ShowCustomer from "../../../components/ShowCustomer";
 
 const ListbyRegion = ({ route, navigation }) => {
   const { regionValue, regionLabel } = route.params;

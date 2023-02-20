@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { regions } from "../data/regions";
+import { regions } from "../features/data/regions";
 
 const ShowCustomer = ({ item }) => {
   const { navigate } = useNavigation();
